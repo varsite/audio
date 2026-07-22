@@ -1,0 +1,56 @@
+{
+    "name": "varsite/audio",
+    "description": "Moduł Audio — próbki lektorskie (NF Records). Cienki moduł domenowy.",
+    "type": "library",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.3",
+        "illuminate/support": "^12.0",
+        "illuminate/database": "^12.0",
+        "illuminate/http": "^12.0",
+        "varsite/platform": "^0.1"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0",
+        "pestphp/pest": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Varsite\\Audio\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Varsite\\Audio\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Varsite\\Audio\\AudioServiceProvider"
+            ]
+        },
+        "branch-alias": {
+            "dev-main": "0.1.x-dev"
+        }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../core",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "scripts": {
+        "test": "pest"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
