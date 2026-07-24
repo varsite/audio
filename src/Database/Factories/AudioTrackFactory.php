@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Varsite\Audio\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Varsite\Audio\Enums\AudioSampleStatus;
+use Varsite\Audio\Enums\AudioTrackStatus;
 use Varsite\Audio\Models\AudioCategory;
-use Varsite\Audio\Models\AudioSample;
+use Varsite\Audio\Models\AudioTrack;
 
-/** @extends Factory<AudioSample> */
-final class AudioSampleFactory extends Factory
+/** @extends Factory<AudioTrack> */
+final class AudioTrackFactory extends Factory
 {
-    protected $model = AudioSample::class;
+    protected $model = AudioTrack::class;
 
     /** @return array<string, mixed> */
     public function definition(): array
@@ -26,7 +26,7 @@ final class AudioSampleFactory extends Factory
             'description' => $this->faker->optional()->paragraph(),
             'media_id' => $this->faker->numberBetween(1, 1000),
             'order' => 0,
-            'status' => AudioSampleStatus::Published,
+            'status' => AudioTrackStatus::Published,
             'published_at' => now(),
             'created_by' => null,
             'meta' => [],
@@ -35,11 +35,11 @@ final class AudioSampleFactory extends Factory
 
     public function draft(): static
     {
-        return $this->state(['status' => AudioSampleStatus::Draft, 'published_at' => null]);
+        return $this->state(['status' => AudioTrackStatus::Draft, 'published_at' => null]);
     }
 
     public function hidden(): static
     {
-        return $this->state(['status' => AudioSampleStatus::Hidden]);
+        return $this->state(['status' => AudioTrackStatus::Hidden]);
     }
 }

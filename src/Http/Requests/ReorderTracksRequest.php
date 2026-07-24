@@ -6,7 +6,7 @@ namespace Varsite\Audio\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-final class ReorderSamplesRequest extends FormRequest
+final class ReorderTracksRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -18,7 +18,7 @@ final class ReorderSamplesRequest extends FormRequest
     {
         return [
             'ids' => ['required', 'array', 'min:1'],
-            'ids.*' => ['integer', 'exists:audio_samples,id'],
+            'ids.*' => ['integer', 'exists:audio_tracks,id'],
         ];
     }
 }

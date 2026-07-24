@@ -6,11 +6,11 @@ namespace Varsite\Audio\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Varsite\Audio\Models\AudioSample;
+use Varsite\Audio\Models\AudioTrack;
 use Varsite\Platform\Contracts\MediaLibrary;
 
-/** @mixin AudioSample */
-final class AudioSampleResource extends JsonResource
+/** @mixin AudioTrack */
+final class AudioTrackResource extends JsonResource
 {
     /** @return array<string, mixed> */
     public function toArray(Request $request): array

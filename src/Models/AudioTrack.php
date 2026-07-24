@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
-use Varsite\Audio\Database\Factories\AudioSampleFactory;
-use Varsite\Audio\Enums\AudioSampleStatus;
+use Varsite\Audio\Database\Factories\AudioTrackFactory;
+use Varsite\Audio\Enums\AudioTrackStatus;
 
 /**
  * @property int $id
@@ -21,13 +21,13 @@ use Varsite\Audio\Enums\AudioSampleStatus;
  * @property string|null $description
  * @property int $media_id
  * @property int $order
- * @property AudioSampleStatus $status
+ * @property AudioTrackStatus $status
  * @property Carbon|null $published_at
  * @property array<string, mixed> $meta
  */
-final class AudioSample extends Model
+final class AudioTrack extends Model
 {
-    /** @use HasFactory<AudioSampleFactory> */
+    /** @use HasFactory<AudioTrackFactory> */
     use HasFactory;
 
     use SoftDeletes;
@@ -43,7 +43,7 @@ final class AudioSample extends Model
         return [
             'media_id' => 'integer',
             'order' => 'integer',
-            'status' => AudioSampleStatus::class,
+            'status' => AudioTrackStatus::class,
             'published_at' => 'datetime',
             'meta' => 'array',
         ];
@@ -55,14 +55,14 @@ final class AudioSample extends Model
         return $this->belongsTo(AudioCategory::class, 'category_id');
     }
 
-    /** @param Builder<AudioSample> $query */
+    /** @param Builder<AudioTrack> $query */
     public function scopePublished(Builder $query): void
     {
-        $query->where('status', AudioSampleStatus::Published);
+        $query->where('status', AudioTrackStatus::Published);
     }
 
-    protected static function newFactory(): AudioSampleFactory
+    protected static function newFactory(): AudioTrackFactory
     {
-        return AudioSampleFactory::new();
+        return AudioTrackFactory::new();
     }
 }

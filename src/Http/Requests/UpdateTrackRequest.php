@@ -6,10 +6,10 @@ namespace Varsite\Audio\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use Varsite\Audio\Enums\AudioSampleStatus;
+use Varsite\Audio\Enums\AudioTrackStatus;
 use Varsite\Platform\Contracts\MediaLibrary;
 
-final class UpdateSampleRequest extends FormRequest
+final class UpdateTrackRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -28,7 +28,7 @@ final class UpdateSampleRequest extends FormRequest
                     $fail('Wskazany plik media nie istnieje.');
                 }
             }],
-            'status' => ['sometimes', Rule::enum(AudioSampleStatus::class)],
+            'status' => ['sometimes', Rule::enum(AudioTrackStatus::class)],
         ];
     }
 }

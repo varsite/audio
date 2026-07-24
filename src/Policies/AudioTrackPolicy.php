@@ -6,8 +6,8 @@ namespace Varsite\Audio\Policies;
 
 use Illuminate\Contracts\Auth\Access\Authorizable;
 
-/** RBAC próbek. Typ-hint kontraktu Authorizable (bez zależności od User z Core). */
-final class AudioSamplePolicy
+/** RBAC nagrań. Typ-hint kontraktu Authorizable (bez zależności od User z Core). */
+final class AudioTrackPolicy
 {
     public function viewAny(Authorizable $user): bool
     {

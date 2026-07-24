@@ -6,10 +6,10 @@ namespace Varsite\Audio\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use Varsite\Audio\Enums\AudioSampleStatus;
+use Varsite\Audio\Enums\AudioTrackStatus;
 use Varsite\Platform\Contracts\MediaLibrary;
 
-final class StoreSampleRequest extends FormRequest
+final class StoreTrackRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -24,7 +24,7 @@ final class StoreSampleRequest extends FormRequest
             'category_id' => ['nullable', 'integer', 'exists:audio_categories,id'],
             'description' => ['nullable', 'string'],
             'media_id' => ['required', 'integer', $this->mediaExists()],
-            'status' => ['sometimes', Rule::enum(AudioSampleStatus::class)],
+            'status' => ['sometimes', Rule::enum(AudioTrackStatus::class)],
         ];
     }
 

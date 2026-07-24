@@ -28,10 +28,10 @@ final class AudioCategory extends Model
         return ['order' => 'integer'];
     }
 
-    /** @return HasMany<AudioSample, $this> */
-    public function samples(): HasMany
+    /** @return HasMany<AudioTrack, $this> */
+    public function tracks(): HasMany
     {
-        return $this->hasMany(AudioSample::class, 'category_id');
+        return $this->hasMany(AudioTrack::class, 'category_id');
     }
 
     protected static function newFactory(): AudioCategoryFactory
