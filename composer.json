@@ -8,7 +8,7 @@
         "illuminate/support": "^12.0",
         "illuminate/database": "^12.0",
         "illuminate/http": "^12.0",
-        "varsite/platform": "^0.1"
+        "varsite/platform": "^0.3"
     },
     "require-dev": {
         "orchestra/testbench": "^10.0",
