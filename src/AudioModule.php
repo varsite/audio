@@ -14,6 +14,11 @@ final class AudioModule implements PlatformModule
         return 'audio';
     }
 
+    public function label(): string
+    {
+        return 'Audio';
+    }
+
     public function version(): string
     {
         return '1.0.0';

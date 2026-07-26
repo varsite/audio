@@ -19,7 +19,6 @@ use Varsite\Platform\Capabilities\Filter;
 use Varsite\Platform\Capabilities\ResourceCapability;
 use Varsite\Platform\Capabilities\WidgetCapability;
 use Varsite\Platform\Capabilities\CapabilityRegistry;
-use Varsite\Platform\Support\NavRegistry;
 
 final class AudioServiceProvider extends ServiceProvider
 {
@@ -29,10 +28,6 @@ final class AudioServiceProvider extends ServiceProvider
         $registrar = $this->app->make(ModuleRouteRegistrar::class);
         $registrar->register('audio', require __DIR__.'/../routes/api.php');
         $registrar->register('audio', require __DIR__.'/../routes/admin.php');
-
-        $this->app->make(NavRegistry::class)
-            ->item('Treść', ['id' => 'audio.tracks', 'label' => 'Nagrania audio', 'icon' => 'audio-lines', 'href' => '/audio/tracks', 'order' => 10], groupOrder: 20)
-            ->item('Treść', ['id' => 'audio.categories', 'label' => 'Kategorie', 'icon' => 'tags', 'href' => '/audio/categories', 'order' => 20], groupOrder: 20);
 
         $this->registerResourceCapabilitys();
 
