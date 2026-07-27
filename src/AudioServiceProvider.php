@@ -34,7 +34,12 @@ final class AudioServiceProvider extends ServiceProvider
         Gate::policy(AudioTrack::class, AudioTrackPolicy::class);
         Gate::policy(AudioCategory::class, AudioCategoryPolicy::class);
 
-        $this->app->make(ModuleManager::class)->register(new AudioModule);
+        $this->app->make(ModuleManager::class)->module(
+            new AudioModule(),
+            function (): void {
+
+            },
+        );
     }
 
     /**
