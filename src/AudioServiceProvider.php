@@ -52,7 +52,7 @@ final class AudioServiceProvider extends ServiceProvider
         $this->app->make(CapabilityRegistry::class)
             ->register(
                 ResourceCapability::make('audio.tracks')
-                    ->label('Nagranie', 'Nagrania audio')
+                    ->label('Nagranie', 'Nagrania')
                     ->icon('audio-lines')
                     ->endpoint('/v1/admin/audio/tracks')
                     ->permission('audio.view')
@@ -96,7 +96,7 @@ final class AudioServiceProvider extends ServiceProvider
             )
             ->register(
                 ResourceCapability::make('audio.categories')
-                    ->label('Kategoria', 'Kategorie audio')
+                    ->label('Kategoria', 'Kategorie')
                     ->icon('tags')
                     ->endpoint('/v1/admin/audio/categories')
                     ->permission('audio.category.manage')
